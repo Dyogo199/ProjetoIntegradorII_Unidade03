@@ -1,29 +1,63 @@
-markdown
-CopiarEditar
-# Modelagem de Banco de Dados para Livraria
+# 📚 Modelagem de Banco de Dados para Livraria
 
-Este repositório contém o script SQL para criação do banco de dados relacional de uma livraria, abrangendo as tabelas de produtos (livros) e pedidos realizados pelos clientes.
+Este repositório contém o script SQL para criação e povoamento de um banco de dados relacional voltado a uma **livraria**, com foco em armazenar informações sobre os produtos (livros) disponíveis e os pedidos realizados por clientes.
 
-## Estrutura do banco
+## 🗂️ Estrutura do Banco de Dados
 
-- **produtos:** armazena informações sobre os livros à venda (nome, preço).
-- **pedidos:** registra as compras feitas pelos clientes, com referência ao produto, quantidade e data do pedido.
+O modelo é composto por duas tabelas principais:
 
-## Exemplo de comandos implementados
+### 🔹 `produtos`
+Armazena informações sobre os livros à venda.
 
-- Criação das tabelas com chave primária e chave estrangeira
-- Inserção de registros de exemplo em ambas as tabelas
+- `id` (INTEGER, chave primária, auto incremento)
+- `nome` (VARCHAR, nome do livro)
+- `preco` (DECIMAL, preço do livro)
 
-## Como usar
+### 🔹 `pedidos`
+Registra as compras feitas pelos clientes.
 
-1. Clone este repositório.
-2. Importe o arquivo `modelagem_livraria.sql` em seu banco de dados SQLite, MySQL ou outro compatível (ajuste a sintaxe se necessário).
-3. Explore ou amplie conforme as necessidades do sistema.
+- `id` (INTEGER, chave primária, auto incremento)
+- `produto_id` (INTEGER, chave estrangeira referenciando `produtos`)
+- `quantidade` (INTEGER, número de unidades compradas)
+- `data_pedido` (DATE, data da compra)
 
-## Versionamento
+## 💡 Comandos Implementados
 
-Este projeto utiliza [Git](https://git-scm.com/) para controle de versão. O histórico de commits pode ser consultado neste repositório.
+O script SQL neste repositório inclui:
 
----
+- Criação das tabelas com suas chaves primária e estrangeira.
+- Inserção de **quatro produtos** (livros) de exemplo.
+- Inserção de **quatro pedidos** simulando compras em diferentes datas.
+- Consultas `SELECT` para visualização dos dados inseridos.
 
-**Desenvolvido para a disciplina Projeto Integrador em Tecnologia da Informação II — UFMS, 2025.**
+## ✅ Exemplo de Produtos Inseridos
+
+| ID | Nome                     | Preço   |
+|----|--------------------------|---------|
+| 1  | Livro de SQL             | 59.90   |
+| 2  | HTML e CSS na Prática    | 44.50   |
+| 3  | JavaScript Essencial     | 69.00   |
+| 4  | Python para Iniciantes   | 75.20   |
+
+## 🚀 Como Usar
+
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/Dyogo199/ProjetoIntegradorII_Unidade03.git
+2. Acesse a pasta:
+   cd ProjetoIntegradorII_Unidade03
+
+Importe o arquivo modelagem_livraria.sql para seu banco de dados compatível com SQL (ex: MySQL, MariaDB, SQLite, etc.).
+Ajustes de sintaxe podem ser necessários conforme o SGDB utilizado.
+
+Execute os comandos em um cliente SQL (como MySQL Workbench, DBeaver ou phpMyAdmin) para criar e popular o banco.
+
+🔄 Versionamento
+Este projeto utiliza Git para controle de versão.
+Você pode consultar todo o histórico de commits clicando aqui.
+
+🎓 Créditos
+Desenvolvido por Dyogo Mondego para a disciplina Projeto Integrador em Tecnologia da Informação II — UFMS, 2025.
+
+
+
